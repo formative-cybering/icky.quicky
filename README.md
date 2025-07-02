@@ -15,7 +15,7 @@ quicky "http://localhost:8080"
 hyprland.conf example:
 
 ```hyprlang
-exec-once = icky
+exec-once = quicky
 
 windowrule = size 500 200, class:^(icky.quicky)
 windowrule = noinitialfocus, class:^(icky.quicky)
