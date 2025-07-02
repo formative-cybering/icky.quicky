@@ -17,7 +17,7 @@ hyprland.conf example:
 ```hyprlang
 exec-once = quicky
 
-windowrule = size 500 200, class:^(icky.quicky)
+windowrule = size 1200 800, class:^(icky.quicky)
 windowrule = noinitialfocus, class:^(icky.quicky)
 ```
 
