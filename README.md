@@ -8,7 +8,7 @@ CLI:
 # start daemon
 quicky
 
-# add note
+# open browser with url
 quicky "http://localhost:8080"
 ```
 
