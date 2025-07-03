@@ -9,7 +9,6 @@ public class IckyQuicky : Gtk.Application {
   private SocketService? socket_service;
   private bool is_daemon = false;
 
-
   public IckyQuicky (string url) {
     Object (
       application_id: "icky.quicky",
@@ -36,8 +35,6 @@ public class IckyQuicky : Gtk.Application {
     new_webview.load_uri(this.current_url);
     new_win.present();
   }
-
-
 
   public override void activate () {
     if (is_daemon) {
