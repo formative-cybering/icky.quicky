@@ -130,7 +130,6 @@ public class IckyQuicky : Gtk.Application {
         print("Daemon is already running\n");
         return 0;
       } else {
-        this.current_url = "https://ill.computer";
         this.is_daemon = true;
         this.activate();
         return 0;
@@ -198,7 +197,7 @@ public class IckyQuicky : Gtk.Application {
   }
 
   public static int main (string[] args) {
-    var app = new IckyQuicky ("https://ill.computer");
+    var app = new IckyQuicky ("");
 
     Posix.signal(Posix.Signal.TERM, cleanup_on_exit);
     Posix.signal(Posix.Signal.INT, cleanup_on_exit);
