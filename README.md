@@ -23,7 +23,7 @@ windowrule = noinitialfocus, class:^(icky.quicky)
 
 ---
 
-Build: requires vala, gtk4 + glib2 + libwebkit2gtk-4.0-dev
+Build: requires vala, gtk4 + glib2 + webkitgtk-6.0
 
 ```sh
 ./build.sh
