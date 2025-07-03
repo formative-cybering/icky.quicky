@@ -8,8 +8,7 @@ public class IckyQuicky : Gtk.Application {
   private const string PID_FILE = "/tmp/icky-quicky-daemon.pid";
   private SocketService? socket_service;
   private bool is_daemon = false;
-  private Gtk.ApplicationWindow? win = null;
-  private WebKit.WebView? webview = null;
+
 
   public IckyQuicky (string url) {
     Object (
@@ -20,19 +19,25 @@ public class IckyQuicky : Gtk.Application {
   }
 
   private void show_browser_window () {
-    if (win == null) {
-      win = new Gtk.ApplicationWindow (this);
-      win.set_name("icky-quicky");
-      win.set_default_size(800, 600);
+    // Always create a new window for each URL
+    var new_win = new Gtk.ApplicationWindow (this);
+    new_win.set_name("icky-quicky");
+    new_win.set_default_size(800, 600);
 
-      webview = new WebKit.WebView();
-      win.set_child(webview);
-    }
-    if (webview != null) {
-      webview.load_uri(this.current_url);
-    }
-    win.present();
+    var new_webview = new WebKit.WebView();
+    new_win.set_child(new_webview);
+
+    // Handle window manager close requests
+    new_win.close_request.connect(() => {
+      new_win.destroy();
+      return false;
+    });
+
+    new_webview.load_uri(this.current_url);
+    new_win.present();
   }
+
+
 
   public override void activate () {
     if (is_daemon) {
